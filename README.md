@@ -1,2 +1,2 @@
 # Software-Testing
-Practica para pruebas de software
+Software testing GitHub repository
