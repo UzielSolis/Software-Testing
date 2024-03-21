@@ -6,7 +6,40 @@ White-box unit testing examples.
 from itertools import product
 import unittest
 
-from white_box import BankingSystem, is_even, divide, get_grade, is_triangle, check_number_status, validate_password, calculate_total_discount, calculate_order_total, calculate_items_shipping_cost, validate_login, verify_age, categorize_product, validate_email, celsius_to_fahrenheit, validate_credit_card, validate_date, check_flight_eligibility, validate_url, calculate_quantity_discount, check_file_size, check_loan_eligibility, calculate_shipping_cost, grade_quiz, authenticate_user, get_weather_advisory, VendingMachine, TrafficLight, UserAuthentication, DocumentEditingSystem, ElevatorSystem
+from white_box import (
+    BankingSystem,
+    is_even,
+    divide,
+    get_grade,
+    is_triangle,
+    check_number_status,
+    validate_password,
+    calculate_total_discount,
+    calculate_order_total,
+    calculate_items_shipping_cost,
+    validate_login,
+    verify_age,
+    categorize_product,
+    validate_email,
+    celsius_to_fahrenheit,
+    validate_credit_card,
+    validate_date,
+    check_flight_eligibility,
+    validate_url,
+    calculate_quantity_discount,
+    check_file_size,
+    check_loan_eligibility,
+    calculate_shipping_cost,
+    grade_quiz,
+    authenticate_user,
+    get_weather_advisory,
+    VendingMachine,
+    TrafficLight,
+    UserAuthentication,
+    DocumentEditingSystem,
+    ElevatorSystem,
+)
+
 
 class TestWhiteBox(unittest.TestCase):
     """
@@ -85,6 +118,7 @@ class TestWhiteBox(unittest.TestCase):
         """
         self.assertEqual(is_triangle(2, 1, 1), "No, it's not a triangle.")
 
+
 # 1
 class TestCheckNumberStatus(unittest.TestCase):
     """
@@ -108,6 +142,7 @@ class TestCheckNumberStatus(unittest.TestCase):
         Checks if the function correctly identifies zero.
         """
         self.assertEqual(check_number_status(0), "Zero")
+
 
 # 2
 class TestValidatePassword(unittest.TestCase):
@@ -151,6 +186,7 @@ class TestValidatePassword(unittest.TestCase):
         """
         self.assertTrue(validate_password("Abcdefg1!"))
 
+
 # 3
 class TestCalculateTotalDiscount(unittest.TestCase):
     """
@@ -174,6 +210,7 @@ class TestCalculateTotalDiscount(unittest.TestCase):
         Checks if the function correctly calculates the discount for total amounts greater than 500.
         """
         self.assertEqual(calculate_total_discount(600), 120)
+
 
 # 4
 class TestCalculateOrderTotal(unittest.TestCase):
@@ -212,9 +249,10 @@ class TestCalculateOrderTotal(unittest.TestCase):
         items = [
             {"quantity": 1, "price": 100},
             {"quantity": 6, "price": 100},
-            {"quantity": 11, "price": 100}
+            {"quantity": 11, "price": 100},
         ]
         self.assertEqual(calculate_order_total(items), 1660)
+
 
 # 5
 class TestCalculateItemsShippingCost(unittest.TestCase):
@@ -272,6 +310,7 @@ class TestCalculateItemsShippingCost(unittest.TestCase):
         with self.assertRaises(ValueError):
             calculate_items_shipping_cost(items, "invalid")
 
+
 # 6
 class TestValidateLogin(unittest.TestCase):
     """
@@ -294,7 +333,9 @@ class TestValidateLogin(unittest.TestCase):
         """
         Checks if the function correctly identifies long usernames.
         """
-        self.assertEqual(validate_login("thisisaverylongusername", "password123"), "Login Failed")
+        self.assertEqual(
+            validate_login("thisisaverylongusername", "password123"), "Login Failed"
+        )
 
     def test_validate_login_failed_short_password(self):
         """
@@ -306,7 +347,10 @@ class TestValidateLogin(unittest.TestCase):
         """
         Checks if the function correctly identifies long passwords.
         """
-        self.assertEqual(validate_login("username", "thisisaverylongpassword"), "Login Failed")
+        self.assertEqual(
+            validate_login("username", "thisisaverylongpassword"), "Login Failed"
+        )
+
 
 # 7
 class TestVerifyAge(unittest.TestCase):
@@ -344,6 +388,7 @@ class TestVerifyAge(unittest.TestCase):
         """
         self.assertEqual(verify_age(65), "Eligible")
 
+
 # 8
 class TestCategorizeProduct(unittest.TestCase):
     """
@@ -374,6 +419,7 @@ class TestCategorizeProduct(unittest.TestCase):
         """
         self.assertEqual(categorize_product(250), "Category D")
 
+
 # 9
 class TestValidateEmail(unittest.TestCase):
     """
@@ -396,7 +442,7 @@ class TestValidateEmail(unittest.TestCase):
         """
         Checks if the function correctly identifies emails that are too long.
         """
-        self.assertEqual(validate_email("a"*46 + "@b.com"), "Invalid Email")
+        self.assertEqual(validate_email("a" * 46 + "@b.com"), "Invalid Email")
 
     def test_validate_email_no_at(self):
         """
@@ -409,6 +455,7 @@ class TestValidateEmail(unittest.TestCase):
         Checks if the function correctly identifies emails without '.'.
         """
         self.assertEqual(validate_email("test@examplecom"), "Invalid Email")
+
 
 # 10
 class TestCelsiusToFahrenheit(unittest.TestCase):
@@ -458,6 +505,7 @@ class TestCelsiusToFahrenheit(unittest.TestCase):
         """
         self.assertEqual(celsius_to_fahrenheit(101), "Invalid Temperature")
 
+
 # 11
 class TestValidateCreditCard(unittest.TestCase):
     """
@@ -487,6 +535,7 @@ class TestValidateCreditCard(unittest.TestCase):
         Checks if the function correctly identifies card numbers that contain non-digit characters.
         """
         self.assertEqual(validate_credit_card("1234567890123A"), "Invalid Card")
+
 
 # 12
 class TestValidateDate(unittest.TestCase):
@@ -536,6 +585,7 @@ class TestValidateDate(unittest.TestCase):
         """
         self.assertEqual(validate_date(2000, 12, 32), "Invalid Date")
 
+
 # 13
 class TestCheckFlightEligibility(unittest.TestCase):
     """
@@ -560,6 +610,7 @@ class TestCheckFlightEligibility(unittest.TestCase):
         """
         self.assertEqual(check_flight_eligibility(17, False), "Not Eligible to Book")
         self.assertEqual(check_flight_eligibility(66, False), "Not Eligible to Book")
+
 
 # 14
 class TestValidateUrl(unittest.TestCase):
@@ -592,6 +643,7 @@ class TestValidateUrl(unittest.TestCase):
         long_url = "http://" + "a" * 250 + ".com"
         self.assertEqual(validate_url(long_url), "Invalid URL")
 
+
 # 15
 class TestCalculateQuantityDiscount(unittest.TestCase):
     """
@@ -618,6 +670,7 @@ class TestCalculateQuantityDiscount(unittest.TestCase):
         """
         self.assertEqual(calculate_quantity_discount(11), "10% Discount")
         self.assertEqual(calculate_quantity_discount(20), "10% Discount")
+
 
 # 16
 class TestCheckFileSize(unittest.TestCase):
@@ -654,6 +707,7 @@ class TestCheckFileSize(unittest.TestCase):
         Checks if the function correctly identifies the maximum file size as valid.
         """
         self.assertEqual(check_file_size(1048576), "Valid File Size")
+
 
 # 17
 # Python
@@ -692,6 +746,7 @@ class TestCheckLoanEligibility(unittest.TestCase):
         """
         self.assertEqual(check_loan_eligibility(65000, 740), "Standard Loan")
 
+
 # 18
 class TestCalculateShippingCost(unittest.TestCase):
     """
@@ -728,6 +783,7 @@ class TestCalculateShippingCost(unittest.TestCase):
         """
         self.assertEqual(calculate_shipping_cost(2, 10, 10, 10), 20)
 
+
 # 19
 class TestGradeQuiz(unittest.TestCase):
     """
@@ -754,6 +810,7 @@ class TestGradeQuiz(unittest.TestCase):
         """
         self.assertEqual(grade_quiz(4, 4), "Fail")
         self.assertEqual(grade_quiz(6, 4), "Fail")
+
 
 # 20
 class TestAuthenticateUser(unittest.TestCase):
@@ -791,6 +848,7 @@ class TestAuthenticateUser(unittest.TestCase):
         """
         self.assertEqual(authenticate_user("usr", "pwd"), "Invalid")
 
+
 # 21
 class TestGetWeatherAdvisory(unittest.TestCase):
     """
@@ -801,7 +859,10 @@ class TestGetWeatherAdvisory(unittest.TestCase):
         """
         Checks if the function correctly identifies high temperature and humidity.
         """
-        self.assertEqual(get_weather_advisory(35, 75), "High Temperature and Humidity. Stay Hydrated.")
+        self.assertEqual(
+            get_weather_advisory(35, 75),
+            "High Temperature and Humidity. Stay Hydrated.",
+        )
 
     def test_get_weather_advisory_low_temp(self):
         """
@@ -814,6 +875,7 @@ class TestGetWeatherAdvisory(unittest.TestCase):
         Checks if the function correctly identifies conditions that do not require a specific advisory.
         """
         self.assertEqual(get_weather_advisory(20, 50), "No Specific Advisory")
+
 
 # 22
 class TestVendingMachine(unittest.TestCase):
@@ -867,6 +929,7 @@ class TestVendingMachine(unittest.TestCase):
         self.assertEqual(response, "Invalid operation in current state.")
         self.assertEqual(self.machine.state, "Ready")
 
+
 # 23
 class TestTrafficLight(unittest.TestCase):
     """
@@ -907,6 +970,7 @@ class TestTrafficLight(unittest.TestCase):
 
         # After 10 changes, the state should be "Green" again.
         self.assertEqual(self.traffic_light.get_current_state(), "Green")
+
 
 # 24
 class TestUserAuthentication(unittest.TestCase):
@@ -954,6 +1018,7 @@ class TestUserAuthentication(unittest.TestCase):
         """
         self.assertEqual(self.user_auth.logout(), "Invalid operation in current state")
 
+
 # 25
 class TestDocumentEditingSystem(unittest.TestCase):
     """
@@ -984,7 +1049,9 @@ class TestDocumentEditingSystem(unittest.TestCase):
         Checks if the document can't be saved in "Saved" state.
         """
         self.doc_system.state = "Saved"
-        self.assertEqual(self.doc_system.save_document(), "Invalid operation in current state")
+        self.assertEqual(
+            self.doc_system.save_document(), "Invalid operation in current state"
+        )
 
     def test_edit_document_in_saved_state(self):
         """
@@ -998,7 +1065,10 @@ class TestDocumentEditingSystem(unittest.TestCase):
         """
         Checks if the document can't be edited in "Editing" state.
         """
-        self.assertEqual(self.doc_system.edit_document(), "Invalid operation in current state")
+        self.assertEqual(
+            self.doc_system.edit_document(), "Invalid operation in current state"
+        )
+
 
 # 26
 class TestElevatorSystem(unittest.TestCase):
@@ -1044,7 +1114,9 @@ class TestElevatorSystem(unittest.TestCase):
         Test that the elevator cannot move down from a non-"Idle" state.
         """
         self.elevator.state = "Moving Up"
-        self.assertEqual(self.elevator.move_down(), "Invalid operation in current state")
+        self.assertEqual(
+            self.elevator.move_down(), "Invalid operation in current state"
+        )
 
     def test_stop_from_moving(self):
         """
@@ -1063,6 +1135,7 @@ class TestElevatorSystem(unittest.TestCase):
         Test that the elevator cannot stop from the "Idle" state.
         """
         self.assertEqual(self.elevator.stop(), "Invalid operation in current state")
+
 
 # 27
 class TestElevatorSystem(unittest.TestCase):
@@ -1108,7 +1181,9 @@ class TestElevatorSystem(unittest.TestCase):
         Test that the elevator cannot move down from a non-"Idle" state.
         """
         self.elevator.state = "Moving Up"
-        self.assertEqual(self.elevator.move_down(), "Invalid operation in current state")
+        self.assertEqual(
+            self.elevator.move_down(), "Invalid operation in current state"
+        )
 
     def test_stop_from_moving(self):
         """
@@ -1127,6 +1202,7 @@ class TestElevatorSystem(unittest.TestCase):
         Test that the elevator cannot stop from the "Idle" state.
         """
         self.assertEqual(self.elevator.stop(), "Invalid operation in current state")
+
 
 class TestBankingSystem(unittest.TestCase):
     """
@@ -1162,28 +1238,37 @@ class TestBankingSystem(unittest.TestCase):
         """
         Test if the transfer_money function works when the sender is not authenticated.
         """
-        self.assertFalse(self.banking_system.transfer_money("user123", "receiver", 100, "regular"))
+        self.assertFalse(
+            self.banking_system.transfer_money("user123", "receiver", 100, "regular")
+        )
 
     def test_transfer_money_invalid_transaction_type(self):
         """
         Test if the transfer_money function works with an invalid transaction type.
         """
         self.banking_system.authenticate("user123", "pass123")
-        self.assertFalse(self.banking_system.transfer_money("user123", "receiver", 100, "invalid"))
+        self.assertFalse(
+            self.banking_system.transfer_money("user123", "receiver", 100, "invalid")
+        )
 
     def test_transfer_money_insufficient_funds(self):
         """
         Test if the transfer_money function works when the sender has insufficient funds.
         """
         self.banking_system.authenticate("user123", "pass123")
-        self.assertFalse(self.banking_system.transfer_money("user123", "receiver", 2000, "regular"))
+        self.assertFalse(
+            self.banking_system.transfer_money("user123", "receiver", 2000, "regular")
+        )
 
     def test_transfer_money_successful(self):
         """
         Test if the transfer_money function works when the transaction should be successful.
         """
         self.banking_system.authenticate("user123", "pass123")
-        self.assertTrue(self.banking_system.transfer_money("user123", "receiver", 500, "regular"))
+        self.assertTrue(
+            self.banking_system.transfer_money("user123", "receiver", 500, "regular")
+        )
+
 
 # 28
 class TestProduct(unittest.TestCase):
@@ -1208,9 +1293,12 @@ class TestProduct(unittest.TestCase):
         """
         Test the view_product method.
         """
-        with unittest.mock.patch('builtins.print') as mocked_print:
+        with unittest.mock.patch("builtins.print") as mocked_print:
             self.product.view_product()
-            mocked_print.assert_called_once_with("The product Test Product has a price of 100")
+            mocked_print.assert_called_once_with(
+                "The product Test Product has a price of 100"
+            )
+
 
 if __name__ == "__main__":
     unittest.main()
