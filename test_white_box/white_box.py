@@ -50,9 +50,9 @@ def is_triangle(a, b, c):
 
 # 1
 def check_number_status(number):
-    """
-    Checks if a given number is positive, negative, or zero.
-    """
+    # """
+    # Checks if a given number is positive, negative, or zero.
+    # """
     if number > 0:
         return "Positive"
 
@@ -64,9 +64,9 @@ def check_number_status(number):
 
 # 2
 def validate_password(password):
-    """
-    Validates user passwords.
-    """
+    # """
+    # Validates user passwords.
+    # """
     # Check length
     if len(password) < 8:
         return False
@@ -86,9 +86,9 @@ def validate_password(password):
 
 # 3
 def calculate_total_discount(total_amount):
-    """
-    Calculates the discount for a customer's purchase based on the total amount.
-    """
+    # """
+    # Calculates the discount for a customer's purchase based on the total amount.
+    # """
     if total_amount < 100:
         return 0
 
@@ -100,11 +100,11 @@ def calculate_total_discount(total_amount):
 
 # 4
 def calculate_order_total(items):
-    """
-    Processes user orders in an e-commerce system.
-    The function calculates the total price of the items in the order,
-    applying different discounts based on the quantity of each item.
-    """
+    # """
+    # Processes user orders in an e-commerce system.
+    # The function calculates the total price of the items in the order,
+    # applying different discounts based on the quantity of each item.
+    # """
     total_price = 0
 
     for item in items:
@@ -124,11 +124,11 @@ def calculate_order_total(items):
 
 # 5
 def calculate_items_shipping_cost(items, shipping_method):
-    """
-    Calculates shipping costs for an online shopping system.
-    The function calculates shipping costs based on the total weight of the
-    items in the order and the shipping method chosen by the customer.
-    """
+    # """
+    # Calculates shipping costs for an online shopping system.
+    # The function calculates shipping costs based on the total weight of the
+    # items in the order and the shipping method chosen by the customer.
+    # """
     total_weight = sum(item["weight"] for item in items)
 
     if shipping_method == "standard":
@@ -154,9 +154,9 @@ def calculate_items_shipping_cost(items, shipping_method):
 
 # 6
 def validate_login(username, password):
-    """
-    Validates user login credentials.
-    """
+    # """
+    # Validates user login credentials.
+    # """
     if 5 <= len(username) <= 20 and 8 <= len(password) <= 15:
         return "Login Successful"
 
@@ -165,9 +165,9 @@ def validate_login(username, password):
 
 # 7
 def verify_age(age):
-    """
-    Determines whether a person is eligible for a certain service based on their age.
-    """
+    # """
+    # Determines whether a person is eligible for a certain service based on their age.
+    # """
     if 18 <= age <= 65:
         return "Eligible"
 
@@ -176,9 +176,9 @@ def verify_age(age):
 
 # 8
 def categorize_product(price):
-    """
-    Determines the price category of a product based on its price.
-    """
+    # """
+    # Determines the price category of a product based on its price.
+    # """
     if 10 <= price <= 50:
         return "Category A"
 
@@ -193,9 +193,9 @@ def categorize_product(price):
 
 # 9
 def validate_email(email):
-    """
-    Validates email addresses.
-    """
+    # """
+    # Validates email addresses.
+    # """
     if 5 <= len(email) <= 50 and "@" in email and "." in email:
         return "Valid Email"
 
@@ -204,9 +204,9 @@ def validate_email(email):
 
 # 10
 def celsius_to_fahrenheit(celsius):
-    """
-    Converts temperatures from Celsius to Fahrenheit.
-    """
+    # """
+    # Converts temperatures from Celsius to Fahrenheit.
+    # """
     if -100 <= celsius <= 100:
         return (celsius * 9 / 5) + 32
 
@@ -215,9 +215,9 @@ def celsius_to_fahrenheit(celsius):
 
 # 11
 def validate_credit_card(card_number):
-    """
-    Validates credit card numbers.
-    """
+    # """
+    # Validates credit card numbers.
+    # """
     if 13 <= len(card_number) <= 16 and card_number.isdigit():
         return "Valid Card"
 
@@ -226,9 +226,9 @@ def validate_credit_card(card_number):
 
 # 12
 def validate_date(year, month, day):
-    """
-    Validates dates.
-    """
+    # """
+    # Validates dates.
+    # """
     if 1900 <= year <= 2100 and 1 <= month <= 12 and 1 <= day <= 31:
         return "Valid Date"
 
@@ -237,9 +237,9 @@ def validate_date(year, month, day):
 
 # 13
 def check_flight_eligibility(age, frequent_flyer):
-    """
-    Checks the eligibility of a passenger to book a flight.
-    """
+    # """
+    # Checks the eligibility of a passenger to book a flight.
+    # """
     if 18 <= age <= 65 or frequent_flyer:
         return "Eligible to Book"
 
@@ -284,9 +284,9 @@ def check_file_size(size_in_bytes):
 
 # 17
 def check_loan_eligibility(income, credit_score):
-    """
-    Checks if and which loan can be granted based on the income and credit score.
-    """
+    # """
+    # Checks if and which loan can be granted based on the income and credit score.
+    # """
     if income < 30000:
         return "Not Eligible"
 
