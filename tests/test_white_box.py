@@ -2,13 +2,13 @@
 
 # domi comment
 
+
 """
 White-box unit testing examples.
 """
 import sys
 import unittest
 from io import StringIO
-from itertools import product
 
 from white_box import (
     BankingSystem,
@@ -248,7 +248,8 @@ class TestCalculateOrderTotal(unittest.TestCase):
 
     def test_calculate_order_total_single_item_no_discount(self):
         """
-        Checks if the function correctly calculates total for a single item with no discount.
+        Checks if the function correctly calculates total
+        for a single item with no discount.
         """
         self.assertEqual(
             calculate_order_total([{"quantity": 1, "price": 100}]), 100
@@ -256,7 +257,8 @@ class TestCalculateOrderTotal(unittest.TestCase):
 
     def test_calculate_order_total_single_item_5_percent_discount(self):
         """
-        Checks if the function correctly calculates total for a single item with 5% discount.
+        Checks if the function correctly calculates
+        total for a single item with 5% discount.
         """
         self.assertEqual(
             calculate_order_total([{"quantity": 6, "price": 100}]),
@@ -265,7 +267,8 @@ class TestCalculateOrderTotal(unittest.TestCase):
 
     def test_calculate_order_total_single_item_10_percent_discount(self):
         """
-        Checks if the function correctly calculates total for a single item with 10% discount.
+        Checks if the function correctly calculates
+        total for a single item with 10% discount.
         """
         self.assertEqual(
             calculate_order_total([{"quantity": 11, "price": 100}]), 990
@@ -273,7 +276,8 @@ class TestCalculateOrderTotal(unittest.TestCase):
 
     def test_calculate_order_total_multiple_items(self):
         """
-        Checks if the function correctly calculates total for multiple items with different discounts.
+        Checks if the function correctly calculates total for
+        multiple items with different discounts.
         """
         items = [
             {"quantity": 1, "price": 100},
@@ -295,7 +299,8 @@ class TestCalculateItemsShippingCost(unittest.TestCase):
         self,
     ):
         """
-        Checks if the function correctly calculates standard shipping cost for total weight <= 5.
+        Checks if the function correctly calculates
+        standard shipping cost for total weight <= 5.
         """
         items = [{"weight": 2}, {"weight": 3}]
         self.assertEqual(calculate_items_shipping_cost(items, "standard"), 10)
@@ -304,7 +309,8 @@ class TestCalculateItemsShippingCost(unittest.TestCase):
         self,
     ):
         """
-        Checks if the function correctly calculates standard shipping cost for 5 < total weight <= 10.
+        Checks if the function correctly calculates
+        standard shipping cost for 5 < total weight <= 10.
         """
         items = [{"weight": 3}, {"weight": 7}]
         self.assertEqual(calculate_items_shipping_cost(items, "standard"), 15)
@@ -313,7 +319,8 @@ class TestCalculateItemsShippingCost(unittest.TestCase):
         self,
     ):
         """
-        Checks if the function correctly calculates standard shipping cost for total weight > 10.
+        Checks if the function correctly calculates
+        standard shipping cost for total weight > 10.
         """
         items = [{"weight": 6}, {"weight": 7}]
         self.assertEqual(calculate_items_shipping_cost(items, "standard"), 20)
@@ -322,7 +329,8 @@ class TestCalculateItemsShippingCost(unittest.TestCase):
         self,
     ):
         """
-        Checks if the function correctly calculates express shipping cost for total weight <= 5.
+        Checks if the function correctly calculates
+        express shipping cost for total weight <= 5.
         """
         items = [{"weight": 2}, {"weight": 3}]
         self.assertEqual(calculate_items_shipping_cost(items, "express"), 20)
@@ -331,21 +339,26 @@ class TestCalculateItemsShippingCost(unittest.TestCase):
         self,
     ):
         """
-        Checks if the function correctly calculates express shipping cost for 5 < total weight <= 10.
+        Checks if the function correctly calculates
+        express shipping cost for 5 < total weight <= 10.
         """
         items = [{"weight": 3}, {"weight": 7}]
         self.assertEqual(calculate_items_shipping_cost(items, "express"), 30)
 
-    def test_calculate_items_shipping_cost_express_weight_greater_than_10(self):
+    def test_calculate_items_shipping_cost_express_weight_greater_than_10(
+        self,
+    ):
         """
-        Checks if the function correctly calculates express shipping cost for total weight > 10.
+        Checks if the function correctly
+        calculates express shipping cost for total weight > 10.
         """
         items = [{"weight": 6}, {"weight": 7}]
         self.assertEqual(calculate_items_shipping_cost(items, "express"), 40)
 
     def test_calculate_items_shipping_cost_invalid_shipping_method(self):
         """
-        Checks if the function raises a ValueError for an invalid shipping method.
+        Checks if the function raises a ValueError
+        for an invalid shipping method.
         """
         items = [{"weight": 2}, {"weight": 3}]
         with self.assertRaises(ValueError):
@@ -415,25 +428,29 @@ class TestVerifyAge(unittest.TestCase):
 
     def test_verify_age_not_eligible_younger(self):
         """
-        Checks if the function correctly identifies ages that are too young to be eligible.
+        Checks if the function correctly identifies
+        ages that are too young to be eligible.
         """
         self.assertEqual(verify_age(17), "Not Eligible")
 
     def test_verify_age_not_eligible_older(self):
         """
-        Checks if the function correctly identifies ages that are too old to be eligible.
+        Checks if the function correctly identifies
+        ages that are too old to be eligible.
         """
         self.assertEqual(verify_age(66), "Not Eligible")
 
     def test_verify_age_eligible_edge_case_young(self):
         """
-        Checks if the function correctly identifies the edge case of the youngest eligible age.
+        Checks if the function correctly identifies the
+        edge case of the youngest eligible age.
         """
         self.assertEqual(verify_age(18), "Eligible")
 
     def test_verify_age_eligible_edge_case_old(self):
         """
-        Checks if the function correctly identifies the edge case of the oldest eligible age.
+        Checks if the function correctly identifies the
+        edge case of the oldest eligible age.
         """
         self.assertEqual(verify_age(65), "Eligible")
 
@@ -526,37 +543,43 @@ class TestCelsiusToFahrenheit(unittest.TestCase):
 
     def test_celsius_to_fahrenheit_positive(self):
         """
-        Checks if the function correctly converts positive Celsius to Fahrenheit.
+        Checks if the function correctly converts
+        positive Celsius to Fahrenheit.
         """
         self.assertEqual(celsius_to_fahrenheit(30), 86)
 
     def test_celsius_to_fahrenheit_negative(self):
         """
-        Checks if the function correctly converts negative Celsius to Fahrenheit.
+        Checks if the function correctly converts
+        negative Celsius to Fahrenheit.
         """
         self.assertEqual(celsius_to_fahrenheit(-20), -4)
 
     def test_celsius_to_fahrenheit_boundary_low(self):
         """
-        Checks if the function correctly converts the lowest valid Celsius temperature to Fahrenheit.
+        Checks if the function correctly converts
+        the lowest valid Celsius temperature to Fahrenheit.
         """
         self.assertEqual(celsius_to_fahrenheit(-100), -148)
 
     def test_celsius_to_fahrenheit_boundary_high(self):
         """
-        Checks if the function correctly converts the highest valid Celsius temperature to Fahrenheit.
+        Checks if the function correctly converts the
+        highest valid Celsius temperature to Fahrenheit.
         """
         self.assertEqual(celsius_to_fahrenheit(100), 212)
 
     def test_celsius_to_fahrenheit_invalid_low(self):
         """
-        Checks if the function correctly handles temperatures below the valid Celsius range.
+        Checks if the function correctly handles temperatures
+        below the valid Celsius range.
         """
         self.assertEqual(celsius_to_fahrenheit(-101), "Invalid Temperature")
 
     def test_celsius_to_fahrenheit_invalid_high(self):
         """
-        Checks if the function correctly handles temperatures above the valid Celsius range.
+        Checks if the function correctly handles
+        temperatures above the valid Celsius range.
         """
         self.assertEqual(celsius_to_fahrenheit(101), "Invalid Temperature")
 
@@ -571,19 +594,22 @@ class TestValidateCreditCard(unittest.TestCase):
 
     def test_validate_credit_card_valid_length(self):
         """
-        Checks if the function correctly validates a card number of valid length.
+        Checks if the function correctly validates a card number
+        of valid length.
         """
         self.assertEqual(validate_credit_card("1234567890123"), "Valid Card")
 
     def test_validate_credit_card_invalid_length_short(self):
         """
-        Checks if the function correctly identifies card numbers that are too short.
+        Checks if the function correctly identifies
+        card numbers that are too short.
         """
         self.assertEqual(validate_credit_card("123456789012"), "Invalid Card")
 
     def test_validate_credit_card_invalid_length_long(self):
         """
-        Checks if the function correctly identifies card numbers that are too long.
+        Checks if the function correctly identifies card numbers
+        that are too long.
         """
         self.assertEqual(
             validate_credit_card("12345678901234567"), "Invalid Card"
@@ -591,9 +617,12 @@ class TestValidateCreditCard(unittest.TestCase):
 
     def test_validate_credit_card_non_digit(self):
         """
-        Checks if the function correctly identifies card numbers that contain non-digit characters.
+        Checks if the function correctly identifies card numbers
+        that contain non-digit characters.
         """
-        self.assertEqual(validate_credit_card("1234567890123A"), "Invalid Card")
+        self.assertEqual(
+            validate_credit_card("1234567890123A"), "Invalid Card"
+        )
 
 
 # 12
@@ -612,37 +641,43 @@ class TestValidateDate(unittest.TestCase):
 
     def test_validate_date_invalid_year_low(self):
         """
-        Checks if the function correctly identifies years below the valid range.
+        Checks if the function correctly identifies years below
+        the valid range.
         """
         self.assertEqual(validate_date(1899, 12, 31), "Invalid Date")
 
     def test_validate_date_invalid_year_high(self):
         """
-        Checks if the function correctly identifies years above the valid range.
+        Checks if the function correctly identifies years above
+        the valid range.
         """
         self.assertEqual(validate_date(2101, 12, 31), "Invalid Date")
 
     def test_validate_date_invalid_month_low(self):
         """
-        Checks if the function correctly identifies months below the valid range.
+        Checks if the function correctly identifies months below
+        the valid range.
         """
         self.assertEqual(validate_date(2000, 0, 31), "Invalid Date")
 
     def test_validate_date_invalid_month_high(self):
         """
-        Checks if the function correctly identifies months above the valid range.
+        Checks if the function correctly identifies months above
+        the valid range.
         """
         self.assertEqual(validate_date(2000, 13, 31), "Invalid Date")
 
     def test_validate_date_invalid_day_low(self):
         """
-        Checks if the function correctly identifies days below the valid range.
+        Checks if the function correctly identifies days below
+        the valid range.
         """
         self.assertEqual(validate_date(2000, 12, 0), "Invalid Date")
 
     def test_validate_date_invalid_day_high(self):
         """
-        Checks if the function correctly identifies days above the valid range.
+        Checks if the function correctly identifies days above
+        the valid range.
         """
         self.assertEqual(validate_date(2000, 12, 32), "Invalid Date")
 
@@ -657,7 +692,8 @@ class TestCheckFlightEligibility(unittest.TestCase):
 
     def test_check_flight_eligibility_in_age_range(self):
         """
-        Checks if the function correctly identifies passengers within the age range.
+        Checks if the function correctly identifies passengers within
+        the age range.
         """
         self.assertEqual(
             check_flight_eligibility(30, False), "Eligible to Book"
@@ -665,13 +701,17 @@ class TestCheckFlightEligibility(unittest.TestCase):
 
     def test_check_flight_eligibility_frequent_flyer(self):
         """
-        Checks if the function correctly identifies passengers who are frequent flyers.
+        Checks if the function correctly identifies
+        passengers who are frequent flyers.
         """
-        self.assertEqual(check_flight_eligibility(70, True), "Eligible to Book")
+        self.assertEqual(
+            check_flight_eligibility(70, True), "Eligible to Book"
+        )
 
     def test_check_flight_eligibility_not_eligible(self):
         """
-        Checks if the function correctly identifies passengers who are not eligible.
+        Checks if the function correctly identifies passengers
+        who are not eligible.
         """
         self.assertEqual(
             check_flight_eligibility(17, False), "Not Eligible to Book"
@@ -703,13 +743,15 @@ class TestValidateUrl(unittest.TestCase):
 
     def test_validate_url_invalid_protocol(self):
         """
-        Checks if the function correctly identifies URLs with invalid protocol.
+        Checks if the function correctly identifies URLs with
+        invalid protocol.
         """
         self.assertEqual(validate_url("ftp://example.com"), "Invalid URL")
 
     def test_validate_url_invalid_length(self):
         """
-        Checks if the function correctly identifies URLs exceeding 255 characters.
+        Checks if the function correctly identifies URLs
+        exceeding 255 characters.
         """
         long_url = "http://" + "a" * 250 + ".com"
         self.assertEqual(validate_url(long_url), "Invalid URL")
@@ -725,21 +767,24 @@ class TestCalculateQuantityDiscount(unittest.TestCase):
 
     def test_calculate_quantity_discount_no_discount(self):
         """
-        Checks if the function correctly identifies quantities that should not receive a discount.
+        Checks if the function correctly identifies
+        quantities that should not receive a discount.
         """
         self.assertEqual(calculate_quantity_discount(1), "No Discount")
         self.assertEqual(calculate_quantity_discount(5), "No Discount")
 
     def test_calculate_quantity_discount_5_percent(self):
         """
-        Checks if the function correctly identifies quantities that should receive a 5% discount.
+        Checks if the function correctly identifies
+        quantities that should receive a 5% discount.
         """
         self.assertEqual(calculate_quantity_discount(6), "5% Discount")
         self.assertEqual(calculate_quantity_discount(10), "5% Discount")
 
     def test_calculate_quantity_discount_10_percent(self):
         """
-        Checks if the function correctly identifies quantities that should receive a 10% discount.
+        Checks if the function correctly identifies
+        quantities that should receive a 10% discount.
         """
         self.assertEqual(calculate_quantity_discount(11), "10% Discount")
         self.assertEqual(calculate_quantity_discount(20), "10% Discount")
@@ -761,7 +806,8 @@ class TestCheckFileSize(unittest.TestCase):
 
     def test_check_file_size_invalid_large(self):
         """
-        Checks if the function correctly identifies file sizes that are too large.
+        Checks if the function correctly identifies
+        file sizes that are too large.
         """
         self.assertEqual(check_file_size(2000000), "Invalid File Size")
 
@@ -773,13 +819,15 @@ class TestCheckFileSize(unittest.TestCase):
 
     def test_check_file_size_zero(self):
         """
-        Checks if the function correctly identifies a file size of zero as valid.
+        Checks if the function correctly identifies a file size
+        of zero as valid.
         """
         self.assertEqual(check_file_size(0), "Valid File Size")
 
     def test_check_file_size_max(self):
         """
-        Checks if the function correctly identifies the maximum file size as valid.
+        Checks if the function correctly identifies the maximum
+        file size as valid.
         """
         self.assertEqual(check_file_size(1048576), "Valid File Size")
 
@@ -795,31 +843,36 @@ class TestCheckLoanEligibility(unittest.TestCase):
 
     def test_check_loan_eligibility_not_eligible(self):
         """
-        Checks if the function correctly identifies when a person is not eligible for a loan.
+        Checks if the function correctly identifies
+        when a person is not eligible for a loan.
         """
         self.assertEqual(check_loan_eligibility(25000, 650), "Not Eligible")
 
     def test_check_loan_eligibility_standard_loan_low_income_high_credit(self):
         """
-        Checks if the function correctly identifies when a person is eligible for a standard loan due to low income but high credit score.
+        Checks if the function correctly identifies when a person is
+        eligible for a standard loan due to low income but high credit score.
         """
         self.assertEqual(check_loan_eligibility(35000, 710), "Standard Loan")
 
     def test_check_loan_eligibility_secured_loan(self):
         """
-        Checks if the function correctly identifies when a person is eligible for a secured loan due to low income and low credit score.
+        Checks if the function correctly identifies when a person is
+        eligible for a secured loan due to low income and low credit score.
         """
         self.assertEqual(check_loan_eligibility(35000, 650), "Secured Loan")
 
     def test_check_loan_eligibility_premium_loan(self):
         """
-        Checks if the function correctly identifies when a person is eligible for a premium loan due to high income and high credit score.
+        Checks if the function correctly identifies when a person is
+        eligible for a premium loan due to high income and high credit score.
         """
         self.assertEqual(check_loan_eligibility(65000, 760), "Premium Loan")
 
     def test_check_loan_eligibility_standard_loan_high_income_low_credit(self):
         """
-        Checks if the function correctly identifies when a person is eligible for a standard loan due to high income but low credit score.
+        Checks if the function correctly identifies when a person is
+        eligible for a standard loan due to high income but low credit score.
         """
         self.assertEqual(check_loan_eligibility(65000, 740), "Standard Loan")
 
@@ -834,31 +887,36 @@ class TestCalculateShippingCost(unittest.TestCase):
 
     def test_calculate_shipping_cost_small_package(self):
         """
-        Checks if the function correctly calculates the shipping cost for small packages.
+        Checks if the function correctly calculates the
+        shipping cost for small packages.
         """
         self.assertEqual(calculate_shipping_cost(1, 10, 10, 10), 5)
 
     def test_calculate_shipping_cost_medium_package(self):
         """
-        Checks if the function correctly calculates the shipping cost for medium packages.
+        Checks if the function correctly calculates the shipping
+        cost for medium packages.
         """
         self.assertEqual(calculate_shipping_cost(2, 15, 15, 15), 10)
 
     def test_calculate_shipping_cost_large_package(self):
         """
-        Checks if the function correctly calculates the shipping cost for large packages.
+        Checks if the function correctly calculates
+        the shipping cost for large packages.
         """
         self.assertEqual(calculate_shipping_cost(6, 31, 31, 31), 20)
 
     def test_calculate_shipping_cost_weight_boundary(self):
         """
-        Checks if the function correctly calculates the shipping cost for packages on the weight boundary.
+        Checks if the function correctly calculates
+        the shipping cost for packages on the weight boundary.
         """
         self.assertEqual(calculate_shipping_cost(1, 11, 11, 11), 20)
 
     def test_calculate_shipping_cost_dimension_boundary(self):
         """
-        Checks if the function correctly calculates the shipping cost for packages on the dimension boundary.
+        Checks if the function correctly calculates
+        the shipping cost for packages on the dimension boundary.
         """
         self.assertEqual(calculate_shipping_cost(2, 10, 10, 10), 20)
 
@@ -942,7 +1000,8 @@ class TestGetWeatherAdvisory(unittest.TestCase):
 
     def test_get_weather_advisory_high_temp_and_humidity(self):
         """
-        Checks if the function correctly identifies high temperature and humidity.
+        Checks if the function correctly identifies high
+        temperature and humidity.
         """
         self.assertEqual(
             get_weather_advisory(35, 75),
@@ -959,7 +1018,8 @@ class TestGetWeatherAdvisory(unittest.TestCase):
 
     def test_get_weather_advisory_no_specific_advisory(self):
         """
-        Checks if the function correctly identifies conditions that do not require a specific advisory.
+        Checks if the function correctly identifies conditions
+        that do not require a specific advisory.
         """
         self.assertEqual(get_weather_advisory(20, 50), "No Specific Advisory")
 
@@ -986,7 +1046,8 @@ class TestVendingMachine(unittest.TestCase):
 
     def test_insert_coin_in_ready_state(self):
         """
-        Test if the state changes to "Dispensing" and returns the correct message when a coin is inserted in "Ready" state.
+        Test if the state changes to "Dispensing" and returns
+        the correct message when a coin is inserted in "Ready" state.
         """
         response = self.machine.insert_coin()
         self.assertEqual(response, "Coin Inserted. Select your drink.")
@@ -994,7 +1055,8 @@ class TestVendingMachine(unittest.TestCase):
 
     def test_insert_coin_in_dispensing_state(self):
         """
-        Test if the state remains "Dispensing" and returns the correct message when a coin is inserted in "Dispensing" state.
+        Test if the state remains "Dispensing" and returns
+        the correct message when a coin is inserted in "Dispensing" state.
         """
         self.machine.insert_coin()  # Change state to "Dispensing"
         response = self.machine.insert_coin()
@@ -1003,7 +1065,8 @@ class TestVendingMachine(unittest.TestCase):
 
     def test_select_drink_in_dispensing_state(self):
         """
-        Test if the state changes to "Ready" and returns the correct message when a drink is selected in "Dispensing" state.
+        Test if the state changes to "Ready" and returns
+        the correct message when a drink is selected in "Dispensing" state.
         """
         self.machine.insert_coin()  # Change state to "Dispensing"
         response = self.machine.select_drink()
@@ -1012,7 +1075,8 @@ class TestVendingMachine(unittest.TestCase):
 
     def test_select_drink_in_ready_state(self):
         """
-        Test if the state remains "Ready" and returns the correct message when a drink is selected in "Ready" state.
+        Test if the state remains "Ready" and returns
+        the correct message when a drink is selected in "Ready" state.
         """
         response = self.machine.select_drink()
         self.assertEqual(response, "Invalid operation in current state.")
@@ -1227,7 +1291,8 @@ class TestElevatorSystem(unittest.TestCase):
 
     def test_stop_from_moving(self):
         """
-        Test that the elevator can stop from the "Moving Up" or "Moving Down" state.
+        Test that the elevator can stop from the
+        "Moving Up" or "Moving Down" state.
         """
         self.elevator.state = "Moving Up"
         self.assertEqual(self.elevator.stop(), "Elevator stopped")
@@ -1247,76 +1312,6 @@ class TestElevatorSystem(unittest.TestCase):
 
 
 # 27
-
-
-class TestElevatorSystem(unittest.TestCase):
-    """
-    Unit test class for ElevatorSystem.
-    """
-
-    def setUp(self):
-        """
-        Set up a new ElevatorSystem instance before each test.
-        """
-        self.elevator = ElevatorSystem()
-
-    def test_initial_state(self):
-        """
-        Test that the initial state of the elevator is "Idle".
-        """
-        self.assertEqual(self.elevator.state, "Idle")
-
-    def test_move_up_from_idle(self):
-        """
-        Test that the elevator can move up from the "Idle" state.
-        """
-        self.assertEqual(self.elevator.move_up(), "Elevator moving up")
-        self.assertEqual(self.elevator.state, "Moving Up")
-
-    def test_move_up_from_non_idle(self):
-        """
-        Test that the elevator cannot move up from a non-"Idle" state.
-        """
-        self.elevator.state = "Moving Down"
-        self.assertEqual(
-            self.elevator.move_up(), "Invalid operation in current state"
-        )
-
-    def test_move_down_from_idle(self):
-        """
-        Test that the elevator can move down from the "Idle" state.
-        """
-        self.assertEqual(self.elevator.move_down(), "Elevator moving down")
-        self.assertEqual(self.elevator.state, "Moving Down")
-
-    def test_move_down_from_non_idle(self):
-        """
-        Test that the elevator cannot move down from a non-"Idle" state.
-        """
-        self.elevator.state = "Moving Up"
-        self.assertEqual(
-            self.elevator.move_down(), "Invalid operation in current state"
-        )
-
-    def test_stop_from_moving(self):
-        """
-        Test that the elevator can stop from the "Moving Up" or "Moving Down" state.
-        """
-        self.elevator.state = "Moving Up"
-        self.assertEqual(self.elevator.stop(), "Elevator stopped")
-        self.assertEqual(self.elevator.state, "Idle")
-
-        self.elevator.state = "Moving Down"
-        self.assertEqual(self.elevator.stop(), "Elevator stopped")
-        self.assertEqual(self.elevator.state, "Idle")
-
-    def test_stop_from_idle(self):
-        """
-        Test that the elevator cannot stop from the "Idle" state.
-        """
-        self.assertEqual(
-            self.elevator.stop(), "Invalid operation in current state"
-        )
 
 
 class TestBankingSystem(unittest.TestCase):
@@ -1346,14 +1341,18 @@ class TestBankingSystem(unittest.TestCase):
 
     def test_authenticate_already_logged_in(self):
         """
-        Test if the authenticate function works when the user is already logged in.
+        Test if the authenticate function
+        works when the user is already logged in.
         """
         self.banking_system.authenticate("user123", "pass123")
-        self.assertFalse(self.banking_system.authenticate("user123", "pass123"))
+        self.assertFalse(
+            self.banking_system.authenticate("user123", "pass123")
+        )
 
     def test_transfer_money_not_authenticated(self):
         """
-        Test if the transfer_money function works when the sender is not authenticated.
+        Test if the transfer_money function
+        works when the sender is not authenticated.
         """
         self.assertFalse(
             self.banking_system.transfer_money(
@@ -1363,7 +1362,8 @@ class TestBankingSystem(unittest.TestCase):
 
     def test_transfer_money_invalid_transaction_type(self):
         """
-        Test if the transfer_money function works with an invalid transaction type.
+        Test if the transfer_money function
+        works with an invalid transaction type.
         """
         self.banking_system.authenticate("user123", "pass123")
         self.assertFalse(
@@ -1374,7 +1374,8 @@ class TestBankingSystem(unittest.TestCase):
 
     def test_transfer_money_insufficient_funds(self):
         """
-        Test if the transfer_money function works when the sender has insufficient funds.
+        Test if the transfer_money function
+        works when the sender has insufficient funds.
         """
         self.banking_system.authenticate("user123", "pass123")
         self.assertFalse(
@@ -1385,7 +1386,8 @@ class TestBankingSystem(unittest.TestCase):
 
     def test_transfer_money_successful(self):
         """
-        Test if the transfer_money function works when the transaction should be successful.
+        Test if the transfer_money function
+        works when the transaction should be successful.
         """
         self.banking_system.authenticate("user123", "pass123")
         self.assertTrue(

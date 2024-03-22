@@ -87,7 +87,8 @@ def validate_password(password):
 # 3
 def calculate_total_discount(total_amount):
     """
-    Calculates the discount for a customer's purchase based on the total amount.
+    Calculates the discount for a customer's
+    purchase based on the total amount.
     """
     if total_amount < 100:
         return 0
@@ -166,7 +167,8 @@ def validate_login(username, password):
 # 7
 def verify_age(age):
     """
-    Determines whether a person is eligible for a certain service based on their age.
+    Determines whether a person is eligible
+    for a certain service based on their age.
     """
     if 18 <= age <= 65:
         return "Eligible"
@@ -289,7 +291,8 @@ def check_file_size(size_in_bytes):
 # 17
 def check_loan_eligibility(income, credit_score):
     """
-    Checks if and which loan can be granted based on the income and credit score.
+    Checks if and which loan can be granted based on the income
+    and credit score.
     """
     if income < 30000:
         return "Not Eligible"
@@ -558,7 +561,8 @@ class BankAccount:  # pylint: disable=too-few-public-methods
         Function to display the account details.
         """
         print(
-            f"The account {self.account_number} has a balance of {self.balance}"
+            f"The account {self.account_number} has a"
+            "balance of {self.balance}"
         )
 
 
