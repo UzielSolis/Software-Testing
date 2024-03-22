@@ -1,6 +1,7 @@
 # -*- coding: utf-8 -*-
 
 # domi comment
+
 """
 White-box unit testing examples.
 """
@@ -103,24 +104,29 @@ class TestWhiteBox(unittest.TestCase):
 
     def test_is_triangle_no_1(self):
         """
-        Checks the three inputs can't form a triangle when C is greater or equal than A + B.
+        Checks the three inputs can't form a triangle when C is greater or
+        equal than A + B.
         """
         self.assertEqual(is_triangle(3, 4, 7), "No, it's not a triangle.")
 
     def test_is_triangle_no_2(self):
         """
-        Checks the three inputs can't form a triangle when B is greater or equal than A + C.
+        Checks the three inputs can't form a triangle when B is greater
+        or equal than A + C.
         """
         self.assertEqual(is_triangle(2, 3, 1), "No, it's not a triangle.")
 
     def test_is_triangle_no_3(self):
         """
-        Checks the three inputs can't form a triangle when A is greater or equal than B + C.
+        Checks the three inputs can't form a triangle when A is
+        greater or equal than B + C.
         """
         self.assertEqual(is_triangle(2, 1, 1), "No, it's not a triangle.")
 
 
 # 1
+
+
 class TestCheckNumberStatus(unittest.TestCase):
     """
     Unit test class for function check_number_status.
@@ -146,6 +152,8 @@ class TestCheckNumberStatus(unittest.TestCase):
 
 
 # 2
+
+
 class TestValidatePassword(unittest.TestCase):
     """
     Unit test class for function validate_password.
@@ -159,13 +167,15 @@ class TestValidatePassword(unittest.TestCase):
 
     def test_validate_password_no_uppercase(self):
         """
-        Checks if the function correctly identifies passwords without uppercase letters.
+        Checks if the function correctly identifies
+        passwords without uppercase letters.
         """
         self.assertFalse(validate_password("abcdefg1!"))
 
     def test_validate_password_no_lowercase(self):
         """
-        Checks if the function correctly identifies passwords without lowercase letters.
+        Checks if the function correctly identifies
+        passwords without lowercase letters.
         """
         self.assertFalse(validate_password("ABCDEFG1!"))
 
@@ -177,7 +187,8 @@ class TestValidatePassword(unittest.TestCase):
 
     def test_validate_password_no_special(self):
         """
-        Checks if the function correctly identifies passwords without special characters.
+        Checks if the function correctly identifies
+        passwords without special characters.
         """
         self.assertFalse(validate_password("ABCDEFGh1"))
 
@@ -189,6 +200,8 @@ class TestValidatePassword(unittest.TestCase):
 
 
 # 3
+
+
 class TestCalculateTotalDiscount(unittest.TestCase):
     """
     Unit test class for function calculate_total_discount.
@@ -196,24 +209,29 @@ class TestCalculateTotalDiscount(unittest.TestCase):
 
     def test_calculate_total_discount_less_than_100(self):
         """
-        Checks if the function correctly calculates the discount for total amounts less than 100.
+        Checks if the function correctly calculates the
+        discount for total amounts less than 100.
         """
         self.assertEqual(calculate_total_discount(50), 0)
 
     def test_calculate_total_discount_between_100_and_500(self):
         """
-        Checks if the function correctly calculates the discount for total amounts between 100 and 500.
+        Checks if the function correctly calculates
+        the discount for total amounts between 100 and 500.
         """
         self.assertEqual(calculate_total_discount(200), 20)
 
     def test_calculate_total_discount_greater_than_500(self):
         """
-        Checks if the function correctly calculates the discount for total amounts greater than 500.
+        Checks if the function correctly calculates
+        the discount for total amounts greater than 500.
         """
         self.assertEqual(calculate_total_discount(600), 120)
 
 
 # 4
+
+
 class TestCalculateOrderTotal(unittest.TestCase):
     """
     Unit test class for function calculate_order_total.
@@ -262,6 +280,8 @@ class TestCalculateOrderTotal(unittest.TestCase):
 
 
 # 5
+
+
 class TestCalculateItemsShippingCost(unittest.TestCase):
     """
     Unit test class for function calculate_items_shipping_cost.
@@ -329,6 +349,8 @@ class TestCalculateItemsShippingCost(unittest.TestCase):
 
 
 # 6
+
+
 class TestValidateLogin(unittest.TestCase):
     """
     Unit test class for function validate_login.
@@ -374,6 +396,8 @@ class TestValidateLogin(unittest.TestCase):
 
 
 # 7
+
+
 class TestVerifyAge(unittest.TestCase):
     """
     Unit test class for function verify_age.
@@ -411,6 +435,8 @@ class TestVerifyAge(unittest.TestCase):
 
 
 # 8
+
+
 class TestCategorizeProduct(unittest.TestCase):
     """
     Unit test class for function categorize_product.
@@ -442,6 +468,8 @@ class TestCategorizeProduct(unittest.TestCase):
 
 
 # 9
+
+
 class TestValidateEmail(unittest.TestCase):
     """
     Unit test class for function validate_email.
@@ -479,6 +507,8 @@ class TestValidateEmail(unittest.TestCase):
 
 
 # 10
+
+
 class TestCelsiusToFahrenheit(unittest.TestCase):
     """
     Unit test class for function celsius_to_fahrenheit.
@@ -528,6 +558,8 @@ class TestCelsiusToFahrenheit(unittest.TestCase):
 
 
 # 11
+
+
 class TestValidateCreditCard(unittest.TestCase):
     """
     Unit test class for function validate_credit_card.
@@ -561,6 +593,8 @@ class TestValidateCreditCard(unittest.TestCase):
 
 
 # 12
+
+
 class TestValidateDate(unittest.TestCase):
     """
     Unit test class for function validate_date.
@@ -610,6 +644,8 @@ class TestValidateDate(unittest.TestCase):
 
 
 # 13
+
+
 class TestCheckFlightEligibility(unittest.TestCase):
     """
     Unit test class for function check_flight_eligibility.
@@ -642,6 +678,8 @@ class TestCheckFlightEligibility(unittest.TestCase):
 
 
 # 14
+
+
 class TestValidateUrl(unittest.TestCase):
     """
     Unit test class for function validate_url.
@@ -674,6 +712,8 @@ class TestValidateUrl(unittest.TestCase):
 
 
 # 15
+
+
 class TestCalculateQuantityDiscount(unittest.TestCase):
     """
     Unit test class for function calculate_quantity_discount.
@@ -702,6 +742,8 @@ class TestCalculateQuantityDiscount(unittest.TestCase):
 
 
 # 16
+
+
 class TestCheckFileSize(unittest.TestCase):
     """
     Unit test class for function check_file_size.
@@ -740,6 +782,8 @@ class TestCheckFileSize(unittest.TestCase):
 
 # 17
 # Python
+
+
 class TestCheckLoanEligibility(unittest.TestCase):
     """
     Unit test class for function check_loan_eligibility.
@@ -777,6 +821,8 @@ class TestCheckLoanEligibility(unittest.TestCase):
 
 
 # 18
+
+
 class TestCalculateShippingCost(unittest.TestCase):
     """
     Unit test class for function calculate_shipping_cost.
@@ -814,6 +860,8 @@ class TestCalculateShippingCost(unittest.TestCase):
 
 
 # 19
+
+
 class TestGradeQuiz(unittest.TestCase):
     """
     Unit test class for function grade_quiz.
@@ -842,6 +890,8 @@ class TestGradeQuiz(unittest.TestCase):
 
 
 # 20
+
+
 class TestAuthenticateUser(unittest.TestCase):
     """
     Unit test class for function authenticate_user.
@@ -879,6 +929,8 @@ class TestAuthenticateUser(unittest.TestCase):
 
 
 # 21
+
+
 class TestGetWeatherAdvisory(unittest.TestCase):
     """
     Unit test class for function get_weather_advisory.
@@ -909,6 +961,8 @@ class TestGetWeatherAdvisory(unittest.TestCase):
 
 
 # 22
+
+
 class TestVendingMachine(unittest.TestCase):
     """
     Unit test class for VendingMachine.
@@ -962,6 +1016,8 @@ class TestVendingMachine(unittest.TestCase):
 
 
 # 23
+
+
 class TestTrafficLight(unittest.TestCase):
     """
     Unit test class for TrafficLight.
@@ -998,12 +1054,14 @@ class TestTrafficLight(unittest.TestCase):
         """
         for _ in range(10):
             self.traffic_light.change_state()
-
         # After 10 changes, the state should be "Green" again.
+
         self.assertEqual(self.traffic_light.get_current_state(), "Green")
 
 
 # 24
+
+
 class TestUserAuthentication(unittest.TestCase):
     """
     Unit test class for UserAuthentication.
@@ -1055,6 +1113,8 @@ class TestUserAuthentication(unittest.TestCase):
 
 
 # 25
+
+
 class TestDocumentEditingSystem(unittest.TestCase):
     """
     Unit test class for DocumentEditingSystem.
@@ -1110,6 +1170,8 @@ class TestDocumentEditingSystem(unittest.TestCase):
 
 
 # 26
+
+
 class TestElevatorSystem(unittest.TestCase):
     """
     Unit test class for ElevatorSystem.
@@ -1181,6 +1243,8 @@ class TestElevatorSystem(unittest.TestCase):
 
 
 # 27
+
+
 class TestElevatorSystem(unittest.TestCase):
     """
     Unit test class for ElevatorSystem.
@@ -1328,6 +1392,8 @@ class TestBankingSystem(unittest.TestCase):
 
 
 # 28
+
+
 class TestProduct(unittest.TestCase):
     """
     Unit test class for class Product.
